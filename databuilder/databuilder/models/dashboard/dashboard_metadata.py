@@ -67,8 +67,8 @@ class DashboardMetadata(GraphSerializable, TableSerializable, AtlasSerializable)
 
     DASHBOARD_GROUP_DESCRIPTION_KEY_FORMAT = '{product}_dashboard://{cluster}.{dashboard_group}/_description'
 
-    DASHBOARD_TAG_RELATION_TYPE = 'TAG'
-    TAG_DASHBOARD_RELATION_TYPE = 'TAG_OF'
+    DASHBOARD_TAG_RELATION_TYPE = 'TAGGED_BY'
+    TAG_DASHBOARD_RELATION_TYPE = 'TAG'
 
     ATLAS_DASHBOARD_KEY_FORMAT = '{product}_dashboard://{cluster}.{dashboard_group_id}/{dashboard_id}'
     ATLAS_DASHBOARD_GROUP_KEY_FORMAT = '{product}_dashboard://{cluster}.{dashboard_group_id}'
@@ -287,7 +287,7 @@ class DashboardMetadata(GraphSerializable, TableSerializable, AtlasSerializable)
                     key=TagMetadata.get_tag_key(tag),
                     label=TagMetadata.TAG_NODE_LABEL,
                     attributes={
-                        TagMetadata.TAG_TYPE: 'dashboard'
+                        TagMetadata.TAG_TYPE: 'default'
                     }
                 )
                 yield dashboard_tag_node
